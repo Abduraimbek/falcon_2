@@ -1,0 +1,174 @@
+import 'package:flutter/material.dart';
+import 'top/top.dart';
+import 'package:falcon_2/utils/utils.dart';
+import 'package:falcon_2/widgets/widgets.dart';
+import 'package:falcon_2/singletons/singletons.dart';
+import 'package:falcon_2/widgets/dialogs.dart';
+
+Future<void> showCookieChangeDialog({
+  required BuildContext context,
+}) async {
+  await showDialog(
+    context: context,
+    builder: (_) => AlertDialog(
+      contentPadding: EdgeInsets.zero,
+      backgroundColor: Colors.white,
+      content: _CookieChangeDialog(
+        cookieAzam: MyPrefsFields.cookieAzam,
+        cookieFalcon: MyPrefsFields.cookieFalcon,
+      ),
+    ),
+  );
+}
+
+class _CookieChangeDialog extends StatefulWidget {
+  const _CookieChangeDialog({
+    Key? key,
+    required this.cookieFalcon,
+    required this.cookieAzam,
+  }) : super(key: key);
+
+  final String cookieFalcon;
+  final String cookieAzam;
+
+  @override
+  _CookieChangeDialogState createState() => _CookieChangeDialogState();
+}
+
+class _CookieChangeDialogState extends State<_CookieChangeDialog> {
+  late TextEditingController controllerFalcon;
+  late TextEditingController controllerAzam;
+
+  @override
+  void initState() {
+    super.initState();
+    controllerFalcon = TextEditingController(text: widget.cookieFalcon);
+    controllerAzam = TextEditingController(text: widget.cookieAzam);
+  }
+
+  @override
+  void dispose() {
+    controllerFalcon.dispose();
+    controllerAzam.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50.vertical,
+      width: 30.horizontal,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(4),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Top(
+            onPressed: () {
+              _syncMethod(context);
+            },
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                width: double.infinity,
+                height: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4),
+                  border: Border.all(
+                    width: 1,
+                    color: MyColors.backgroundColor,
+                  ),
+                ),
+                child: TextField(
+                  autofocus: true,
+                  controller: controllerFalcon,
+                  style: MyTextStyles.interMediumFirst(),
+                  maxLines: null,
+                  keyboardType: TextInputType.multiline,
+                  decoration: const InputDecoration(
+                    isDense: true,
+                    labelText: "Falcon Cookie",
+                    border: InputBorder.none,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                width: double.infinity,
+                height: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4),
+                  border: Border.all(
+                    width: 1,
+                    color: MyColors.backgroundColor,
+                  ),
+                ),
+                child: TextField(
+                  autofocus: false,
+                  controller: controllerAzam,
+                  style: MyTextStyles.interMediumFirst(),
+                  maxLines: null,
+                  keyboardType: TextInputType.multiline,
+                  decoration: const InputDecoration(
+                    isDense: true,
+                    labelText: "Azam Cookie",
+                    border: InputBorder.none,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 20, bottom: 20),
+            child: MyButton(
+              text: "Ok",
+              onTap: () {
+                _method(context);
+              },
+              color: MyColors.backgroundColor,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _syncMethod(BuildContext context) async {
+    showWaitingDialog(context);
+
+    final result = await TokenApi.getTokens();
+
+    Navigator.pop(context);
+
+    if (result) {
+      controllerAzam.text = MyPrefsFields.cookieAzam;
+      controllerFalcon.text = MyPrefsFields.cookieFalcon;
+    }
+  }
+
+  Future<void> _method(BuildContext context) async {
+    if (MyPrefsFields.isRoot) {
+      showWaitingDialog(context);
+
+      await MyPrefs().setCookieFalcon(controllerFalcon.text);
+      await MyPrefs().setCookieAzam(controllerAzam.text);
+
+      final result = await TokenApi.postTokens();
+      Navigator.pop(context);
+      if (result) Navigator.pop(context);
+    } else {
+      await MyPrefs().setCookieFalcon(controllerFalcon.text);
+      await MyPrefs().setCookieAzam(controllerAzam.text);
+      Navigator.pop(context);
+    }
+  }
+}
