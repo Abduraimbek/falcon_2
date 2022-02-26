@@ -11,8 +11,7 @@ import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
 
 import 'singletons/api/driver/model/driver_model.dart';
 import 'singletons/api/employee/model/employee_model.dart';
-import 'singletons/api/order_3/model/order_azam_model.dart';
-import 'singletons/api/order_3/model/order_falcon_model.dart';
+import 'singletons/api/order_4/order_model_4.dart';
 import 'singletons/api/quoted_orders/model/quoted_order_model.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
@@ -237,194 +236,6 @@ final _entities = <ModelEntity>[
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(3, 6370935516019419664),
-      name: 'OrderAzamModel',
-      lastPropertyId: const IdUid(17, 5709259440731330235),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 664751760077526124),
-            name: 'id',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 3327925752294373023),
-            name: 'postedBy',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 7605334862471695064),
-            name: 'orderId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 3396398253556127944),
-            name: 'pickUpAt',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 6507885083745748249),
-            name: 'pickUpDate',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 2750278027664825923),
-            name: 'deliverTo',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 1662282360870686337),
-            name: 'deliverDate',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 3135841584980068590),
-            name: 'postDate',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 22953829749806073),
-            name: 'expiresDate',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 8156663443500832516),
-            name: 'vehicle',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(11, 1337854969494371220),
-            name: 'miles',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(12, 7712637853740463283),
-            name: 'pieces',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 4656462624420579872),
-            name: 'weight',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(14, 7253355807752925415),
-            name: 'orderLink',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(15, 1392306245203148546),
-            name: 'writeTime',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(16, 2580902934417028271),
-            name: 'seen',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(17, 5709259440731330235),
-            name: 'owner',
-            type: 6,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
-      id: const IdUid(4, 4282642146361892702),
-      name: 'OrderFalconModel',
-      lastPropertyId: const IdUid(17, 551977969975243032),
-      flags: 0,
-      properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 7198128908497029494),
-            name: 'id',
-            type: 6,
-            flags: 1),
-        ModelProperty(
-            id: const IdUid(2, 3183998283149842374),
-            name: 'postedBy',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 686153708486808191),
-            name: 'orderId',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(4, 1906799589614240361),
-            name: 'pickUpAt',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(5, 1438533295689918041),
-            name: 'pickUpDate',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(6, 1340282330909377184),
-            name: 'deliverTo',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(7, 6811859748038911250),
-            name: 'deliverDate',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(8, 2699253977485661492),
-            name: 'postDate',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(9, 6584390031936932469),
-            name: 'expiresDate',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(10, 2082738588683250499),
-            name: 'vehicle',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(11, 179337263272782077),
-            name: 'miles',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(12, 9093042482512021272),
-            name: 'pieces',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(13, 408967481907532129),
-            name: 'weight',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(14, 4654285895078638526),
-            name: 'orderLink',
-            type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(15, 2628328611955426958),
-            name: 'writeTime',
-            type: 6,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(16, 641312573716763147),
-            name: 'seen',
-            type: 1,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(17, 551977969975243032),
-            name: 'owner',
-            type: 6,
-            flags: 0)
-      ],
-      relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[]),
-  ModelEntity(
       id: const IdUid(5, 8603504529864601161),
       name: 'QuotedOrderModel',
       lastPropertyId: const IdUid(14, 1078960092477801114),
@@ -502,6 +313,100 @@ final _entities = <ModelEntity>[
             flags: 0)
       ],
       relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(6, 1522456334922119248),
+      name: 'OrderModel4',
+      lastPropertyId: const IdUid(19, 5562224167090216148),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 9055226559769402861),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 4602468141666780004),
+            name: 'seen',
+            type: 1,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 1989389791231577377),
+            name: 'link',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 6815021323885395347),
+            name: 'postedBy',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 8976887685919750564),
+            name: 'refNo',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(6, 2828894479274358044),
+            name: 'orderId',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(7, 8136509846565450148),
+            name: 'pickUpAt',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 4180996795357978745),
+            name: 'pickUpDate',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(9, 1472456832238368162),
+            name: 'deliverTo',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 730442459605182161),
+            name: 'deliverDate',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 3265791091195729935),
+            name: 'postDate',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 8449194856411454441),
+            name: 'expiresDate',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(13, 3682808695244222579),
+            name: 'vehicle',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(14, 2818173605267959536),
+            name: 'weight',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(15, 5143209980462435716),
+            name: 'pieces',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(18, 8898006267939764117),
+            name: 'miles',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(19, 5562224167090216148),
+            name: 'host',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[])
 ];
 
@@ -525,13 +430,50 @@ Future<Store> openStore(
 ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
-      lastEntityId: const IdUid(5, 8603504529864601161),
+      lastEntityId: const IdUid(6, 1522456334922119248),
       lastIndexId: const IdUid(0, 0),
       lastRelationId: const IdUid(0, 0),
       lastSequenceId: const IdUid(0, 0),
-      retiredEntityUids: const [],
+      retiredEntityUids: const [6370935516019419664, 4282642146361892702],
       retiredIndexUids: const [],
-      retiredPropertyUids: const [],
+      retiredPropertyUids: const [
+        664751760077526124,
+        3327925752294373023,
+        7605334862471695064,
+        3396398253556127944,
+        6507885083745748249,
+        2750278027664825923,
+        1662282360870686337,
+        3135841584980068590,
+        22953829749806073,
+        8156663443500832516,
+        1337854969494371220,
+        7712637853740463283,
+        4656462624420579872,
+        7253355807752925415,
+        1392306245203148546,
+        2580902934417028271,
+        5709259440731330235,
+        7198128908497029494,
+        3183998283149842374,
+        686153708486808191,
+        1906799589614240361,
+        1438533295689918041,
+        1340282330909377184,
+        6811859748038911250,
+        2699253977485661492,
+        6584390031936932469,
+        2082738588683250499,
+        179337263272782077,
+        9093042482512021272,
+        408967481907532129,
+        4654285895078638526,
+        2628328611955426958,
+        641312573716763147,
+        551977969975243032,
+        3303296316263924307,
+        7719998074281519140
+      ],
       retiredRelationUids: const [],
       modelVersion: 5,
       modelVersionParserMinimum: 5,
@@ -721,200 +663,8 @@ ModelDefinition getObjectBoxModel() {
 
           return object;
         }),
-    OrderAzamModel: EntityDefinition<OrderAzamModel>(
-        model: _entities[2],
-        toOneRelations: (OrderAzamModel object) => [],
-        toManyRelations: (OrderAzamModel object) => {},
-        getId: (OrderAzamModel object) => object.id,
-        setId: (OrderAzamModel object, int id) {
-          object.id = id;
-        },
-        objectToFB: (OrderAzamModel object, fb.Builder fbb) {
-          final postedByOffset = object.postedBy == null
-              ? null
-              : fbb.writeString(object.postedBy!);
-          final orderIdOffset =
-              object.orderId == null ? null : fbb.writeString(object.orderId!);
-          final pickUpAtOffset = object.pickUpAt == null
-              ? null
-              : fbb.writeString(object.pickUpAt!);
-          final pickUpDateOffset = object.pickUpDate == null
-              ? null
-              : fbb.writeString(object.pickUpDate!);
-          final deliverToOffset = object.deliverTo == null
-              ? null
-              : fbb.writeString(object.deliverTo!);
-          final deliverDateOffset = object.deliverDate == null
-              ? null
-              : fbb.writeString(object.deliverDate!);
-          final postDateOffset = object.postDate == null
-              ? null
-              : fbb.writeString(object.postDate!);
-          final expiresDateOffset = object.expiresDate == null
-              ? null
-              : fbb.writeString(object.expiresDate!);
-          final vehicleOffset =
-              object.vehicle == null ? null : fbb.writeString(object.vehicle!);
-          final milesOffset =
-              object.miles == null ? null : fbb.writeString(object.miles!);
-          final piecesOffset =
-              object.pieces == null ? null : fbb.writeString(object.pieces!);
-          final weightOffset =
-              object.weight == null ? null : fbb.writeString(object.weight!);
-          final orderLinkOffset = object.orderLink == null
-              ? null
-              : fbb.writeString(object.orderLink!);
-          fbb.startTable(18);
-          fbb.addInt64(0, object.id);
-          fbb.addOffset(1, postedByOffset);
-          fbb.addOffset(2, orderIdOffset);
-          fbb.addOffset(3, pickUpAtOffset);
-          fbb.addOffset(4, pickUpDateOffset);
-          fbb.addOffset(5, deliverToOffset);
-          fbb.addOffset(6, deliverDateOffset);
-          fbb.addOffset(7, postDateOffset);
-          fbb.addOffset(8, expiresDateOffset);
-          fbb.addOffset(9, vehicleOffset);
-          fbb.addOffset(10, milesOffset);
-          fbb.addOffset(11, piecesOffset);
-          fbb.addOffset(12, weightOffset);
-          fbb.addOffset(13, orderLinkOffset);
-          fbb.addInt64(14, object.writeTime);
-          fbb.addBool(15, object.seen);
-          fbb.addInt64(16, object.owner);
-          fbb.finish(fbb.endTable());
-          return object.id;
-        },
-        objectFromFB: (Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-
-          final object = OrderAzamModel(
-              postedBy: const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 6),
-              orderId: const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 8),
-              pickUpAt: const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 10),
-              pickUpDate: const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 12),
-              deliverTo: const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 14),
-              deliverDate: const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 16),
-              postDate: const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 18),
-              expiresDate: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 20),
-              vehicle: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 22),
-              miles: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 24),
-              pieces: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 26),
-              weight: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 28),
-              orderLink: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 30),
-              seen: const fb.BoolReader().vTableGet(buffer, rootOffset, 34, false),
-              writeTime: const fb.Int64Reader().vTableGet(buffer, rootOffset, 32, 0),
-              owner: const fb.Int64Reader().vTableGet(buffer, rootOffset, 36, 0))
-            ..id = const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
-
-          return object;
-        }),
-    OrderFalconModel: EntityDefinition<OrderFalconModel>(
-        model: _entities[3],
-        toOneRelations: (OrderFalconModel object) => [],
-        toManyRelations: (OrderFalconModel object) => {},
-        getId: (OrderFalconModel object) => object.id,
-        setId: (OrderFalconModel object, int id) {
-          object.id = id;
-        },
-        objectToFB: (OrderFalconModel object, fb.Builder fbb) {
-          final postedByOffset = object.postedBy == null
-              ? null
-              : fbb.writeString(object.postedBy!);
-          final orderIdOffset =
-              object.orderId == null ? null : fbb.writeString(object.orderId!);
-          final pickUpAtOffset = object.pickUpAt == null
-              ? null
-              : fbb.writeString(object.pickUpAt!);
-          final pickUpDateOffset = object.pickUpDate == null
-              ? null
-              : fbb.writeString(object.pickUpDate!);
-          final deliverToOffset = object.deliverTo == null
-              ? null
-              : fbb.writeString(object.deliverTo!);
-          final deliverDateOffset = object.deliverDate == null
-              ? null
-              : fbb.writeString(object.deliverDate!);
-          final postDateOffset = object.postDate == null
-              ? null
-              : fbb.writeString(object.postDate!);
-          final expiresDateOffset = object.expiresDate == null
-              ? null
-              : fbb.writeString(object.expiresDate!);
-          final vehicleOffset =
-              object.vehicle == null ? null : fbb.writeString(object.vehicle!);
-          final milesOffset =
-              object.miles == null ? null : fbb.writeString(object.miles!);
-          final piecesOffset =
-              object.pieces == null ? null : fbb.writeString(object.pieces!);
-          final weightOffset =
-              object.weight == null ? null : fbb.writeString(object.weight!);
-          final orderLinkOffset = object.orderLink == null
-              ? null
-              : fbb.writeString(object.orderLink!);
-          fbb.startTable(18);
-          fbb.addInt64(0, object.id);
-          fbb.addOffset(1, postedByOffset);
-          fbb.addOffset(2, orderIdOffset);
-          fbb.addOffset(3, pickUpAtOffset);
-          fbb.addOffset(4, pickUpDateOffset);
-          fbb.addOffset(5, deliverToOffset);
-          fbb.addOffset(6, deliverDateOffset);
-          fbb.addOffset(7, postDateOffset);
-          fbb.addOffset(8, expiresDateOffset);
-          fbb.addOffset(9, vehicleOffset);
-          fbb.addOffset(10, milesOffset);
-          fbb.addOffset(11, piecesOffset);
-          fbb.addOffset(12, weightOffset);
-          fbb.addOffset(13, orderLinkOffset);
-          fbb.addInt64(14, object.writeTime);
-          fbb.addBool(15, object.seen);
-          fbb.addInt64(16, object.owner);
-          fbb.finish(fbb.endTable());
-          return object.id;
-        },
-        objectFromFB: (Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-
-          final object = OrderFalconModel(
-              postedBy: const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 6),
-              orderId: const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 8),
-              pickUpAt: const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 10),
-              pickUpDate: const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 12),
-              deliverTo: const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 14),
-              deliverDate: const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 16),
-              postDate: const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 18),
-              expiresDate: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 20),
-              vehicle: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 22),
-              miles: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 24),
-              pieces: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 26),
-              weight: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 28),
-              orderLink: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 30),
-              seen: const fb.BoolReader().vTableGet(buffer, rootOffset, 34, false),
-              writeTime: const fb.Int64Reader().vTableGet(buffer, rootOffset, 32, 0),
-              owner: const fb.Int64Reader().vTableGet(buffer, rootOffset, 36, 0))
-            ..id = const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
-
-          return object;
-        }),
     QuotedOrderModel: EntityDefinition<QuotedOrderModel>(
-        model: _entities[4],
+        model: _entities[2],
         toOneRelations: (QuotedOrderModel object) => [],
         toManyRelations: (QuotedOrderModel object) => {},
         getId: (QuotedOrderModel object) => object.id,
@@ -994,6 +744,104 @@ ModelDefinition getObjectBoxModel() {
               mail: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 26),
               subject: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 28),
               createdDate: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 30));
+
+          return object;
+        }),
+    OrderModel4: EntityDefinition<OrderModel4>(
+        model: _entities[3],
+        toOneRelations: (OrderModel4 object) => [],
+        toManyRelations: (OrderModel4 object) => {},
+        getId: (OrderModel4 object) => object.id,
+        setId: (OrderModel4 object, int id) {
+          object.id = id;
+        },
+        objectToFB: (OrderModel4 object, fb.Builder fbb) {
+          final linkOffset =
+              object.link == null ? null : fbb.writeString(object.link!);
+          final postedByOffset = object.postedBy == null
+              ? null
+              : fbb.writeString(object.postedBy!);
+          final refNoOffset =
+              object.refNo == null ? null : fbb.writeString(object.refNo!);
+          final orderIdOffset =
+              object.orderId == null ? null : fbb.writeString(object.orderId!);
+          final pickUpAtOffset = object.pickUpAt == null
+              ? null
+              : fbb.writeString(object.pickUpAt!);
+          final pickUpDateOffset = object.pickUpDate == null
+              ? null
+              : fbb.writeString(object.pickUpDate!);
+          final deliverToOffset = object.deliverTo == null
+              ? null
+              : fbb.writeString(object.deliverTo!);
+          final deliverDateOffset = object.deliverDate == null
+              ? null
+              : fbb.writeString(object.deliverDate!);
+          final postDateOffset = object.postDate == null
+              ? null
+              : fbb.writeString(object.postDate!);
+          final expiresDateOffset = object.expiresDate == null
+              ? null
+              : fbb.writeString(object.expiresDate!);
+          final vehicleOffset =
+              object.vehicle == null ? null : fbb.writeString(object.vehicle!);
+          final weightOffset =
+              object.weight == null ? null : fbb.writeString(object.weight!);
+          final piecesOffset =
+              object.pieces == null ? null : fbb.writeString(object.pieces!);
+          final milesOffset =
+              object.miles == null ? null : fbb.writeString(object.miles!);
+          final hostOffset = fbb.writeString(object.host);
+          fbb.startTable(20);
+          fbb.addInt64(0, object.id);
+          fbb.addBool(1, object.seen);
+          fbb.addOffset(2, linkOffset);
+          fbb.addOffset(3, postedByOffset);
+          fbb.addOffset(4, refNoOffset);
+          fbb.addOffset(5, orderIdOffset);
+          fbb.addOffset(6, pickUpAtOffset);
+          fbb.addOffset(7, pickUpDateOffset);
+          fbb.addOffset(8, deliverToOffset);
+          fbb.addOffset(9, deliverDateOffset);
+          fbb.addOffset(10, postDateOffset);
+          fbb.addOffset(11, expiresDateOffset);
+          fbb.addOffset(12, vehicleOffset);
+          fbb.addOffset(13, weightOffset);
+          fbb.addOffset(14, piecesOffset);
+          fbb.addOffset(17, milesOffset);
+          fbb.addOffset(18, hostOffset);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+
+          final object = OrderModel4(
+              link: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 8),
+              postedBy: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 10),
+              refNo: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 12),
+              orderId: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 14),
+              pickUpAt: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 16),
+              pickUpDate: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 18),
+              deliverTo: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 20),
+              deliverDate: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 22),
+              postDate: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 24),
+              expiresDate: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 26),
+              vehicle: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 28),
+              weight: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 30),
+              pieces: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 32),
+              miles: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 38),
+              host: const fb.StringReader(asciiOptimization: true).vTableGet(buffer, rootOffset, 40, ''),
+              seen: const fb.BoolReader().vTableGet(buffer, rootOffset, 6, false))
+            ..id = const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
 
           return object;
         })
@@ -1168,203 +1016,132 @@ class EmployeeModel_ {
       QueryBooleanProperty<EmployeeModel>(_entities[1].properties[13]);
 }
 
-/// [OrderAzamModel] entity fields to define ObjectBox queries.
-class OrderAzamModel_ {
-  /// see [OrderAzamModel.id]
-  static final id =
-      QueryIntegerProperty<OrderAzamModel>(_entities[2].properties[0]);
-
-  /// see [OrderAzamModel.postedBy]
-  static final postedBy =
-      QueryStringProperty<OrderAzamModel>(_entities[2].properties[1]);
-
-  /// see [OrderAzamModel.orderId]
-  static final orderId =
-      QueryStringProperty<OrderAzamModel>(_entities[2].properties[2]);
-
-  /// see [OrderAzamModel.pickUpAt]
-  static final pickUpAt =
-      QueryStringProperty<OrderAzamModel>(_entities[2].properties[3]);
-
-  /// see [OrderAzamModel.pickUpDate]
-  static final pickUpDate =
-      QueryStringProperty<OrderAzamModel>(_entities[2].properties[4]);
-
-  /// see [OrderAzamModel.deliverTo]
-  static final deliverTo =
-      QueryStringProperty<OrderAzamModel>(_entities[2].properties[5]);
-
-  /// see [OrderAzamModel.deliverDate]
-  static final deliverDate =
-      QueryStringProperty<OrderAzamModel>(_entities[2].properties[6]);
-
-  /// see [OrderAzamModel.postDate]
-  static final postDate =
-      QueryStringProperty<OrderAzamModel>(_entities[2].properties[7]);
-
-  /// see [OrderAzamModel.expiresDate]
-  static final expiresDate =
-      QueryStringProperty<OrderAzamModel>(_entities[2].properties[8]);
-
-  /// see [OrderAzamModel.vehicle]
-  static final vehicle =
-      QueryStringProperty<OrderAzamModel>(_entities[2].properties[9]);
-
-  /// see [OrderAzamModel.miles]
-  static final miles =
-      QueryStringProperty<OrderAzamModel>(_entities[2].properties[10]);
-
-  /// see [OrderAzamModel.pieces]
-  static final pieces =
-      QueryStringProperty<OrderAzamModel>(_entities[2].properties[11]);
-
-  /// see [OrderAzamModel.weight]
-  static final weight =
-      QueryStringProperty<OrderAzamModel>(_entities[2].properties[12]);
-
-  /// see [OrderAzamModel.orderLink]
-  static final orderLink =
-      QueryStringProperty<OrderAzamModel>(_entities[2].properties[13]);
-
-  /// see [OrderAzamModel.writeTime]
-  static final writeTime =
-      QueryIntegerProperty<OrderAzamModel>(_entities[2].properties[14]);
-
-  /// see [OrderAzamModel.seen]
-  static final seen =
-      QueryBooleanProperty<OrderAzamModel>(_entities[2].properties[15]);
-
-  /// see [OrderAzamModel.owner]
-  static final owner =
-      QueryIntegerProperty<OrderAzamModel>(_entities[2].properties[16]);
-}
-
-/// [OrderFalconModel] entity fields to define ObjectBox queries.
-class OrderFalconModel_ {
-  /// see [OrderFalconModel.id]
-  static final id =
-      QueryIntegerProperty<OrderFalconModel>(_entities[3].properties[0]);
-
-  /// see [OrderFalconModel.postedBy]
-  static final postedBy =
-      QueryStringProperty<OrderFalconModel>(_entities[3].properties[1]);
-
-  /// see [OrderFalconModel.orderId]
-  static final orderId =
-      QueryStringProperty<OrderFalconModel>(_entities[3].properties[2]);
-
-  /// see [OrderFalconModel.pickUpAt]
-  static final pickUpAt =
-      QueryStringProperty<OrderFalconModel>(_entities[3].properties[3]);
-
-  /// see [OrderFalconModel.pickUpDate]
-  static final pickUpDate =
-      QueryStringProperty<OrderFalconModel>(_entities[3].properties[4]);
-
-  /// see [OrderFalconModel.deliverTo]
-  static final deliverTo =
-      QueryStringProperty<OrderFalconModel>(_entities[3].properties[5]);
-
-  /// see [OrderFalconModel.deliverDate]
-  static final deliverDate =
-      QueryStringProperty<OrderFalconModel>(_entities[3].properties[6]);
-
-  /// see [OrderFalconModel.postDate]
-  static final postDate =
-      QueryStringProperty<OrderFalconModel>(_entities[3].properties[7]);
-
-  /// see [OrderFalconModel.expiresDate]
-  static final expiresDate =
-      QueryStringProperty<OrderFalconModel>(_entities[3].properties[8]);
-
-  /// see [OrderFalconModel.vehicle]
-  static final vehicle =
-      QueryStringProperty<OrderFalconModel>(_entities[3].properties[9]);
-
-  /// see [OrderFalconModel.miles]
-  static final miles =
-      QueryStringProperty<OrderFalconModel>(_entities[3].properties[10]);
-
-  /// see [OrderFalconModel.pieces]
-  static final pieces =
-      QueryStringProperty<OrderFalconModel>(_entities[3].properties[11]);
-
-  /// see [OrderFalconModel.weight]
-  static final weight =
-      QueryStringProperty<OrderFalconModel>(_entities[3].properties[12]);
-
-  /// see [OrderFalconModel.orderLink]
-  static final orderLink =
-      QueryStringProperty<OrderFalconModel>(_entities[3].properties[13]);
-
-  /// see [OrderFalconModel.writeTime]
-  static final writeTime =
-      QueryIntegerProperty<OrderFalconModel>(_entities[3].properties[14]);
-
-  /// see [OrderFalconModel.seen]
-  static final seen =
-      QueryBooleanProperty<OrderFalconModel>(_entities[3].properties[15]);
-
-  /// see [OrderFalconModel.owner]
-  static final owner =
-      QueryIntegerProperty<OrderFalconModel>(_entities[3].properties[16]);
-}
-
 /// [QuotedOrderModel] entity fields to define ObjectBox queries.
 class QuotedOrderModel_ {
   /// see [QuotedOrderModel.id]
   static final id =
-      QueryIntegerProperty<QuotedOrderModel>(_entities[4].properties[0]);
+      QueryIntegerProperty<QuotedOrderModel>(_entities[2].properties[0]);
 
   /// see [QuotedOrderModel.requestRef]
   static final requestRef =
-      QueryStringProperty<QuotedOrderModel>(_entities[4].properties[1]);
+      QueryStringProperty<QuotedOrderModel>(_entities[2].properties[1]);
 
   /// see [QuotedOrderModel.postedBy]
   static final postedBy =
-      QueryStringProperty<QuotedOrderModel>(_entities[4].properties[2]);
+      QueryStringProperty<QuotedOrderModel>(_entities[2].properties[2]);
 
   /// see [QuotedOrderModel.vehicleType]
   static final vehicleType =
-      QueryStringProperty<QuotedOrderModel>(_entities[4].properties[3]);
+      QueryStringProperty<QuotedOrderModel>(_entities[2].properties[3]);
 
   /// see [QuotedOrderModel.origin]
   static final origin =
-      QueryStringProperty<QuotedOrderModel>(_entities[4].properties[4]);
+      QueryStringProperty<QuotedOrderModel>(_entities[2].properties[4]);
 
   /// see [QuotedOrderModel.destination]
   static final destination =
-      QueryStringProperty<QuotedOrderModel>(_entities[4].properties[5]);
+      QueryStringProperty<QuotedOrderModel>(_entities[2].properties[5]);
 
   /// see [QuotedOrderModel.totalMiles]
   static final totalMiles =
-      QueryStringProperty<QuotedOrderModel>(_entities[4].properties[6]);
+      QueryStringProperty<QuotedOrderModel>(_entities[2].properties[6]);
 
   /// see [QuotedOrderModel.weight]
   static final weight =
-      QueryStringProperty<QuotedOrderModel>(_entities[4].properties[7]);
+      QueryStringProperty<QuotedOrderModel>(_entities[2].properties[7]);
 
   /// see [QuotedOrderModel.price]
   static final price =
-      QueryDoubleProperty<QuotedOrderModel>(_entities[4].properties[8]);
+      QueryDoubleProperty<QuotedOrderModel>(_entities[2].properties[8]);
 
   /// see [QuotedOrderModel.seenAt]
   static final seenAt =
-      QueryStringProperty<QuotedOrderModel>(_entities[4].properties[9]);
+      QueryStringProperty<QuotedOrderModel>(_entities[2].properties[9]);
 
   /// see [QuotedOrderModel.notificationCount]
   static final notificationCount =
-      QueryIntegerProperty<QuotedOrderModel>(_entities[4].properties[10]);
+      QueryIntegerProperty<QuotedOrderModel>(_entities[2].properties[10]);
 
   /// see [QuotedOrderModel.mail]
   static final mail =
-      QueryStringProperty<QuotedOrderModel>(_entities[4].properties[11]);
+      QueryStringProperty<QuotedOrderModel>(_entities[2].properties[11]);
 
   /// see [QuotedOrderModel.subject]
   static final subject =
-      QueryStringProperty<QuotedOrderModel>(_entities[4].properties[12]);
+      QueryStringProperty<QuotedOrderModel>(_entities[2].properties[12]);
 
   /// see [QuotedOrderModel.createdDate]
   static final createdDate =
-      QueryStringProperty<QuotedOrderModel>(_entities[4].properties[13]);
+      QueryStringProperty<QuotedOrderModel>(_entities[2].properties[13]);
+}
+
+/// [OrderModel4] entity fields to define ObjectBox queries.
+class OrderModel4_ {
+  /// see [OrderModel4.id]
+  static final id =
+      QueryIntegerProperty<OrderModel4>(_entities[3].properties[0]);
+
+  /// see [OrderModel4.seen]
+  static final seen =
+      QueryBooleanProperty<OrderModel4>(_entities[3].properties[1]);
+
+  /// see [OrderModel4.link]
+  static final link =
+      QueryStringProperty<OrderModel4>(_entities[3].properties[2]);
+
+  /// see [OrderModel4.postedBy]
+  static final postedBy =
+      QueryStringProperty<OrderModel4>(_entities[3].properties[3]);
+
+  /// see [OrderModel4.refNo]
+  static final refNo =
+      QueryStringProperty<OrderModel4>(_entities[3].properties[4]);
+
+  /// see [OrderModel4.orderId]
+  static final orderId =
+      QueryStringProperty<OrderModel4>(_entities[3].properties[5]);
+
+  /// see [OrderModel4.pickUpAt]
+  static final pickUpAt =
+      QueryStringProperty<OrderModel4>(_entities[3].properties[6]);
+
+  /// see [OrderModel4.pickUpDate]
+  static final pickUpDate =
+      QueryStringProperty<OrderModel4>(_entities[3].properties[7]);
+
+  /// see [OrderModel4.deliverTo]
+  static final deliverTo =
+      QueryStringProperty<OrderModel4>(_entities[3].properties[8]);
+
+  /// see [OrderModel4.deliverDate]
+  static final deliverDate =
+      QueryStringProperty<OrderModel4>(_entities[3].properties[9]);
+
+  /// see [OrderModel4.postDate]
+  static final postDate =
+      QueryStringProperty<OrderModel4>(_entities[3].properties[10]);
+
+  /// see [OrderModel4.expiresDate]
+  static final expiresDate =
+      QueryStringProperty<OrderModel4>(_entities[3].properties[11]);
+
+  /// see [OrderModel4.vehicle]
+  static final vehicle =
+      QueryStringProperty<OrderModel4>(_entities[3].properties[12]);
+
+  /// see [OrderModel4.weight]
+  static final weight =
+      QueryStringProperty<OrderModel4>(_entities[3].properties[13]);
+
+  /// see [OrderModel4.pieces]
+  static final pieces =
+      QueryStringProperty<OrderModel4>(_entities[3].properties[14]);
+
+  /// see [OrderModel4.miles]
+  static final miles =
+      QueryStringProperty<OrderModel4>(_entities[3].properties[15]);
+
+  /// see [OrderModel4.host]
+  static final host =
+      QueryStringProperty<OrderModel4>(_entities[3].properties[16]);
 }

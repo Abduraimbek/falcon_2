@@ -13,11 +13,11 @@ class Bottom extends StatelessWidget {
   const Bottom({
     Key? key,
     required this.orderByLinkModel3,
-    required this.orderModel3,
+    required this.orderModel,
   }) : super(key: key);
 
   final OrderByLinkModel3 orderByLinkModel3;
-  final OrderModel3 orderModel3;
+  final OrderModel4 orderModel;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class Bottom extends StatelessWidget {
                 ),
                 Expanded(
                   child: NearbyDriversList(
-                    origin: orderModel3.pickUpAt ?? "",
+                    origin: orderModel.pickUpAt ?? "",
                   ),
                 ),
               ],

@@ -1,8 +1,11 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'top/top.dart';
 import 'package:falcon_2/utils/utils.dart';
 import 'package:falcon_2/widgets/widgets.dart';
-import 'package:falcon_2/singletons/singletons.dart';
 import 'package:falcon_2/widgets/dialogs.dart';
 
 Future<void> showCookieChangeDialog({
@@ -65,9 +68,7 @@ class _CookieChangeDialogState extends State<_CookieChangeDialog> {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Top(
-            onPressed: () {
-              _syncMethod(context);
-            },
+            onPressed: () {},
           ),
           Expanded(
             child: Padding(
@@ -142,33 +143,36 @@ class _CookieChangeDialogState extends State<_CookieChangeDialog> {
     );
   }
 
-  void _syncMethod(BuildContext context) async {
-    showWaitingDialog(context);
-
-    final result = await TokenApi.getTokens();
-
-    Navigator.pop(context);
-
-    if (result) {
-      controllerAzam.text = MyPrefsFields.cookieAzam;
-      controllerFalcon.text = MyPrefsFields.cookieFalcon;
-    }
-  }
-
   Future<void> _method(BuildContext context) async {
     if (MyPrefsFields.isRoot) {
       showWaitingDialog(context);
 
-      await MyPrefs().setCookieFalcon(controllerFalcon.text);
-      await MyPrefs().setCookieAzam(controllerAzam.text);
+      final resultFalcon = await _setCookieApi(
+        "falcon",
+        controllerFalcon.text,
+      );
+      final resultAzam = await _setCookieApi(
+        "azam",
+        controllerAzam.text,
+      );
 
-      final result = await TokenApi.postTokens();
       Navigator.pop(context);
-      if (result) Navigator.pop(context);
-    } else {
-      await MyPrefs().setCookieFalcon(controllerFalcon.text);
-      await MyPrefs().setCookieAzam(controllerAzam.text);
-      Navigator.pop(context);
+      if (resultAzam || resultFalcon) Navigator.pop(context);
+    }
+  }
+
+  Future<bool> _setCookieApi(String to, String cookie) async {
+    try {
+      final uri = Uri.parse("http://188.225.78.146:3000/set-cookie");
+      final body = {"to": to, "cookie": cookie};
+      final response = await post(uri, body: jsonEncode(body));
+      final parsed = await jsonDecode(utf8.decode(response.bodyBytes));
+      print(body);
+      print(response.body);
+      return parsed["ok"];
+    } catch (e) {
+      log("cookie_change_dialog.dart --> _setCookieApi --> error --> $e");
+      return false;
     }
   }
 }

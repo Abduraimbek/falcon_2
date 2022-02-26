@@ -13,17 +13,17 @@ import 'quote_details/quote_details.dart';
 
 Future<void> showBidDialog3({
   required BuildContext context,
-  required OrderModel3 orderModel3,
+  required OrderModel4 orderModel,
 }) async {
-  OrderFalconSingleton.seen(orderModel3);
-  orderModel3OrderModel3 = orderModel3;
+  OrderRepository4.seen(orderModel);
+  orderModel4OrderModel4 = orderModel;
 
   await showDialog(
     context: context,
     barrierDismissible: true,
     builder: (context) => AlertDialog(
       content: _BidDialog(
-        orderModel3: orderModel3,
+        orderModel: orderModel,
       ),
       contentPadding: EdgeInsets.zero,
       backgroundColor: MyColors.cardColor,
@@ -34,10 +34,10 @@ Future<void> showBidDialog3({
 class _BidDialog extends ConsumerWidget {
   const _BidDialog({
     Key? key,
-    required this.orderModel3,
+    required this.orderModel,
   }) : super(key: key);
 
-  final OrderModel3 orderModel3;
+  final OrderModel4 orderModel;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -46,11 +46,11 @@ class _BidDialog extends ConsumerWidget {
       height: 90.vertical,
       child: Builder(
         builder: (context) {
-          if (orderModel3.orderLink == null) {
+          if (orderModel.link == null) {
             return buildColumn(OrderByLinkModel3.nullModel());
           } else {
             return FutureBuilder<OrderByLinkModel3?>(
-              future: OrderApi3.orderByLink(orderModel3),
+              future: OrderApi4().orderByLink(orderModel.link ?? ""),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return buildColumn(OrderByLinkModel3.nullModel());
@@ -64,10 +64,10 @@ class _BidDialog extends ConsumerWidget {
                   } else {
                     final model = snapshot.data!;
                     orderByLinkModel3OrderByLinkModel3 = model;
-                    fromFrom = orderModel3.pickUpAt ?? "";
-                    toTo = orderModel3.deliverTo ?? "";
+                    fromFrom = orderModel.pickUpAt ?? "";
+                    toTo = orderModel.deliverTo ?? "";
                     orderIdOrderId =
-                        int.tryParse(orderModel3.orderId ?? "") ?? 0;
+                        int.tryParse(orderModel.orderId ?? "") ?? 0;
 
                     return buildColumn(model);
                   }
@@ -93,7 +93,7 @@ class _BidDialog extends ConsumerWidget {
               Expanded(
                 flex: 5,
                 child: Information3(
-                  orderModel3: orderModel3,
+                  orderModel: orderModel,
                   orderByLinkModel3: model,
                 ),
               ),

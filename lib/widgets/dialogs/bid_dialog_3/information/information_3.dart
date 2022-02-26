@@ -12,10 +12,10 @@ class Information3 extends StatelessWidget {
   const Information3({
     Key? key,
     required this.orderByLinkModel3,
-    required this.orderModel3,
+    required this.orderModel,
   }) : super(key: key);
 
-  final OrderModel3 orderModel3;
+  final OrderModel4 orderModel;
   final OrderByLinkModel3 orderByLinkModel3;
 
   @override
@@ -28,33 +28,33 @@ class Information3 extends StatelessWidget {
         const SizedBox(height: 10),
         buildText(
           "Pick-up at: ",
-          MyStringHelper.minusWhenNull(orderModel3.pickUpAt),
+          MyStringHelper.minusWhenNull(orderModel.pickUpAt),
         ),
         buildText(
           "Pick-up date (EST): ",
-          MyStringHelper.minusWhenNull(orderModel3.pickUpDate),
+          MyStringHelper.minusWhenNull(orderModel.pickUpDate),
         ),
         const SizedBox(height: 10),
         buildText(
           "Deliver to: ",
-          MyStringHelper.minusWhenNull(orderModel3.deliverTo),
+          MyStringHelper.minusWhenNull(orderModel.deliverTo),
         ),
         buildText(
           "Delivery date (EST): ",
-          MyStringHelper.minusWhenNull(orderModel3.deliverDate),
+          MyStringHelper.minusWhenNull(orderModel.deliverDate),
         ),
         const SizedBox(height: 10),
         buildText(
           "Miles: ",
-          MyStringHelper.minusWhenNull(orderModel3.miles),
+          MyStringHelper.minusWhenNull(orderModel.miles),
         ),
         buildText(
           "Pieces: ",
-          MyStringHelper.minusWhenNull(orderModel3.pieces),
+          MyStringHelper.minusWhenNull(orderModel.pieces),
         ),
         buildText(
           "Weight: ",
-          MyStringHelper.minusWhenNull(orderModel3.weight),
+          MyStringHelper.minusWhenNull(orderModel.weight),
         ),
         buildText(
           "Dims: ",
@@ -99,7 +99,7 @@ class Information3 extends StatelessWidget {
         Expanded(
           child: Bottom(
             orderByLinkModel3: orderByLinkModel3,
-            orderModel3: orderModel3,
+            orderModel: orderModel,
           ),
         ),
       ],
@@ -109,7 +109,7 @@ class Information3 extends StatelessWidget {
   Widget topText() {
     String text = "SHIPMENT DETAILS                ";
 
-    text += MyStringHelper.getMinutesAgo(orderModel3.postDate);
+    text += MyStringHelper.getMinutesAgo(orderModel.postDate);
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -146,13 +146,13 @@ class Information3 extends StatelessWidget {
     return TextButton(
       onPressed: () {
         String copy = "";
-        copy += "Pick-up at: ${orderModel3.pickUpAt}\n";
-        copy += "Pick-up date (EST): ${orderModel3.pickUpDate}\n\n";
-        copy += "Deliver to: ${orderModel3.deliverTo}\n";
-        copy += "Delivery date (EST): ${orderModel3.deliverDate}\n\n";
-        copy += "Miles: ${orderModel3.miles}\n";
-        copy += "Pieces: ${orderModel3.pieces}\n";
-        copy += "Weight: ${orderModel3.weight}\n\n";
+        copy += "Pick-up at: ${orderModel.pickUpAt}\n";
+        copy += "Pick-up date (EST): ${orderModel.pickUpDate}\n\n";
+        copy += "Deliver to: ${orderModel.deliverTo}\n";
+        copy += "Delivery date (EST): ${orderModel.deliverDate}\n\n";
+        copy += "Miles: ${orderModel.miles}\n";
+        copy += "Pieces: ${orderModel.pieces}\n";
+        copy += "Weight: ${orderModel.weight}\n\n";
         copy += "Notes: ${orderByLinkModel3.notes}";
         Clipboard.setData(ClipboardData(text: copy));
       },

@@ -46,7 +46,7 @@ class BuildFilter extends ConsumerWidget {
   Widget buildAllSeen() {
     return MyButtonView(
       onTap: () {
-        OrderFalconSingleton.allSeen();
+        OrderRepository4.allSeen();
       },
       child: Text(
         "All seen",

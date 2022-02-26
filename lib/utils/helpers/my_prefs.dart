@@ -19,6 +19,9 @@ class MyPrefsFields {
   static late String cookieAzam;
   static late String cookieFalcon;
 
+  static late int updateSecond;
+  static late int lastUpdateTime;
+
   static List<dynamic> getList() => [
         isAuthenticated,
         isRoot,
@@ -35,6 +38,8 @@ class MyPrefsFields {
         fPassword,
         cookieAzam,
         cookieFalcon,
+        updateSecond,
+        lastUpdateTime,
       ];
 
   static void setList(List<dynamic> list) {
@@ -55,6 +60,8 @@ class MyPrefsFields {
     fPassword = list[12];
     cookieAzam = list[13];
     cookieFalcon = list[14];
+    updateSecond = list[15];
+    lastUpdateTime = list[16];
   }
 }
 
@@ -89,6 +96,9 @@ class MyPrefs {
     MyPrefsFields.fPassword = instance.getString("f_password") ?? "";
     MyPrefsFields.cookieAzam = instance.getString("cookie_azam") ?? "";
     MyPrefsFields.cookieFalcon = instance.getString("cookie_falcon") ?? "";
+
+    MyPrefsFields.updateSecond = instance.getInt("update_second") ?? 4;
+    MyPrefsFields.lastUpdateTime = instance.getInt("last_update_time") ?? 0;
   }
 
   //=========================================================================
@@ -146,6 +156,20 @@ class MyPrefs {
     final instance = await SharedPreferences.getInstance();
     final result = await instance.setInt("employee_role", value);
     MyPrefsFields.employeeRole = value;
+    return result;
+  }
+
+  Future<bool> setUpdateSecond(int value) async {
+    final instance = await SharedPreferences.getInstance();
+    final result = await instance.setInt("update_second", value);
+    MyPrefsFields.updateSecond = value;
+    return result;
+  }
+
+  Future<bool> setLastUpdateTime(int value) async {
+    final instance = await SharedPreferences.getInstance();
+    final result = await instance.setInt("last_update_time", value);
+    MyPrefsFields.lastUpdateTime = value;
     return result;
   }
 

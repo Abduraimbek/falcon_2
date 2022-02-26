@@ -22,7 +22,7 @@ class _VehicleTypeFilterState extends ConsumerState<VehicleTypeFilter> {
   @override
   void initState() {
     super.initState();
-    value = ref.read(orderListProvider3.notifier).vehicle;
+    value = ref.read(orderListProvider4.notifier).vehicle;
     values = ["All", ...MyStrings.vehicleTypes];
   }
 
@@ -38,9 +38,7 @@ class _VehicleTypeFilterState extends ConsumerState<VehicleTypeFilter> {
           setState(() {
             value = v;
           });
-          // ref.read(ordersUrlProvider).selectVehicleType(value);
-          // ref.read(orderListProvider.notifier).selectVehicleType(value);
-          ref.read(orderListProvider3.notifier).selectVehicle(value);
+          ref.read(orderListProvider4.notifier).selectVehicle(value);
         }
       },
       items: values

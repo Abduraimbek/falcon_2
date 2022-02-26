@@ -10,7 +10,7 @@ final drawerOpenProvider =
 });
 
 class _DrawerOpenNotifier extends StateNotifier<int> {
-  _DrawerOpenNotifier() : super(1);
+  _DrawerOpenNotifier() : super(2);
 
   void openCloseDrawer() {
     if (state == 1) {

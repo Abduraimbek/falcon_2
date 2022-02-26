@@ -1,8 +1,3 @@
-///
-/// Created by Abduraimbek Yarkinov at 17:51 on 18.11.2021.
-///
-
-import 'dart:async';
 import 'package:falcon_2/providers/providers.dart';
 import 'package:falcon_2/singletons/singletons.dart';
 import 'package:falcon_2/widgets/dialogs.dart';
@@ -20,28 +15,26 @@ class BuildList extends ConsumerStatefulWidget {
 
 class _BuildListState extends ConsumerState<BuildList> {
   late ScrollController controller;
-  late Timer timer;
 
   @override
   void initState() {
     super.initState();
     controller = ScrollController();
-    timer = Timer.periodic(const Duration(seconds: 4), (timer) {
-      OrderFalconSingleton.getOrders();
-      OrderAzamSingleton.getOrders();
-    });
+    UpdateOrders4().startTimer();
+    // UpdateRepository().startTimer();
   }
 
   @override
   void dispose() {
     controller.dispose();
-    timer.cancel();
+    UpdateOrders4().dispose();
+    // UpdateRepository().dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final list = ref.watch(orderListProvider3);
+    final list = ref.watch(orderListProvider4);
 
     return ListView.builder(
       controller: controller,
@@ -53,7 +46,7 @@ class _BuildListState extends ConsumerState<BuildList> {
           onDoubleTap: () {
             showBidDialog3(
               context: context,
-              orderModel3: item,
+              orderModel: item,
             );
           },
           child: Item(orderModel: item),

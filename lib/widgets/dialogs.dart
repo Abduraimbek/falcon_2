@@ -15,3 +15,4 @@ export 'dialogs/bid_quote_dialog/bid_dialog.dart';
 export 'dialogs/bid_dialog_3/bid_dialog_3.dart';
 export 'dialogs/driver_notes_dialog/driver_notes_dialog.dart';
 export 'dialogs/cookie_change_dialog/cookie_change_dialog.dart';
+export 'dialogs/update_second_dialog/update_second_dialog.dart';

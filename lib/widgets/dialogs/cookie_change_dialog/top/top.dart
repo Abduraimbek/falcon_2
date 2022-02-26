@@ -33,13 +33,13 @@ class Top extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              IconButton(
-                onPressed: onPressed,
-                icon: const Icon(
-                  Icons.sync,
-                  color: Colors.white,
-                ),
-              ),
+              // IconButton(
+              //   onPressed: onPressed,
+              //   icon: const Icon(
+              //     Icons.sync,
+              //     color: Colors.white,
+              //   ),
+              // ),
               CloseButton(
                 color: Colors.white,
                 onPressed: () {

@@ -126,17 +126,19 @@ class _QuoteDetails extends ChangeNotifier {
     );
 
     final quoteModel2 = QuoteModel2(
-      postedBy: orderModel3OrderModel3!.postedBy ?? "",
-      weight: orderModel3OrderModel3!.weight ?? "",
+      postedBy: orderModel4OrderModel4!.postedBy ?? "",
+      weight: orderModel4OrderModel4!.weight ?? "",
       mail: orderByLinkModel3OrderByLinkModel3.postedEmail ?? "",
       status: 0,
-      destination: orderModel3OrderModel3!.deliverTo ?? "",
-      origin: orderModel3OrderModel3!.pickUpAt ?? "",
-      vehicleType: orderModel3OrderModel3!.vehicle ?? "",
-      createdDate: orderModel3OrderModel3!.writeTime,
-      totalMiles: orderModel3OrderModel3!.miles ?? "",
-      requestRef: orderModel3OrderModel3!.orderId ?? "",
-      createdDateStr: orderModel3OrderModel3!.postDate ?? "",
+      destination: orderModel4OrderModel4!.deliverTo ?? "",
+      origin: orderModel4OrderModel4!.pickUpAt ?? "",
+      vehicleType: orderModel4OrderModel4!.vehicle ?? "",
+      createdDate: 32423324,
+      //orderModel4OrderModel4!.writeTime,
+      totalMiles: "total miles",
+      //orderModel4OrderModel4!.miles ?? "",
+      requestRef: orderModel4OrderModel4!.orderId ?? "",
+      createdDateStr: orderModel4OrderModel4!.postDate ?? "",
       nearbyTrucks: 0,
       subject: "",
       quote: quoteModel,
@@ -173,4 +175,4 @@ String toTo = "";
 String stopStop = "";
 
 int orderIdOrderId = 0;
-OrderModel3? orderModel3OrderModel3;
+OrderModel4? orderModel4OrderModel4;

@@ -22,7 +22,7 @@ class _RefFilterState extends ConsumerState<OriginFilter> {
   void initState() {
     super.initState();
     controller = TextEditingController(
-        text: ref.read(orderListProvider3.notifier).origin);
+        text: ref.read(orderListProvider4.notifier).origin);
   }
 
   @override
@@ -41,7 +41,7 @@ class _RefFilterState extends ConsumerState<OriginFilter> {
       child: TextField(
         onChanged: (value) {
           // ref.read(ordersUrlProvider).typeOrigin(value);
-          ref.read(orderListProvider3.notifier).typeOrigin(value);
+          ref.read(orderListProvider4.notifier).typeOrigin(value);
         },
         controller: controller,
         style: style,

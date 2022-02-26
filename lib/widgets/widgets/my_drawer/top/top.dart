@@ -1,7 +1,3 @@
-///
-/// Created by Abduraimbek Yarkinov at 14:55 on 18.11.2021.
-///
-
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:falcon_2/utils/utils.dart';
@@ -29,6 +25,8 @@ class _TopState extends ConsumerState<Top> {
   @override
   Widget build(BuildContext context) {
     final count = ref.watch(quotedOrdersProvider).notifications;
+    // final isPostedLoads = ref.watch(drawerProvider) == DrawerEnum.postedLoads;
+    // final animation = ref.watch(updateAnimationProvider);
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -98,8 +96,7 @@ class _TopState extends ConsumerState<Top> {
               );
 
               if (result) {
-                MyObjectbox.store.box<OrderFalconModel>().removeAll();
-                MyObjectbox.store.box<OrderAzamModel>().removeAll();
+                OrderRepository4.clear();
               }
             },
           ),
@@ -115,6 +112,20 @@ class _TopState extends ConsumerState<Top> {
               Navigator.pop(context, "Change Cookie");
 
               showCookieChangeDialog(context: context);
+            },
+          ),
+        ),
+        PopupMenuItem(
+          padding: EdgeInsets.zero,
+          child: ListTile(
+            title: Text(
+              "Change Posted Loads Update Period",
+              style: MyTextStyles.interMediumFirst(),
+            ),
+            onTap: () async {
+              Navigator.pop(context, "Update Period");
+
+              showUpdateSecondDialog(context: context);
             },
           ),
         ),

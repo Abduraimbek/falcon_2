@@ -1,9 +1,9 @@
+import 'package:falcon_2/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:falcon_2/views/views.dart';
 import 'package:falcon_2/utils/utils.dart';
-import 'package:falcon_2/singletons/singletons.dart';
-import 'package:falcon_2/widgets/widgets.dart';
 import 'package:falcon_2/providers/providers.dart';
+import 'package:falcon_2/singletons/singletons.dart';
 
 class Wrapper extends ConsumerStatefulWidget {
   const Wrapper({
@@ -37,10 +37,8 @@ class _WrapperState extends ConsumerState<Wrapper> {
   }
 
   Future<void> _waitBeforeRunningApp() async {
-    await Future.wait([
-      MyObjectbox.init(),
-      MyPrefs().initialize(),
-    ]);
+    await MyPrefs().initialize();
+    await MyObjectbox.init();
 
     ref.read(chattingProvider).startListeningFalcon();
     ref.read(chattingProvider).startListeningAzam();
