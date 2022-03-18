@@ -20,7 +20,6 @@ class MyPrefsFields {
   static late String cookieFalcon;
 
   static late int updateSecond;
-  static late int lastUpdateTime;
 
   static List<dynamic> getList() => [
         isAuthenticated,
@@ -39,7 +38,6 @@ class MyPrefsFields {
         cookieAzam,
         cookieFalcon,
         updateSecond,
-        lastUpdateTime,
       ];
 
   static void setList(List<dynamic> list) {
@@ -61,7 +59,6 @@ class MyPrefsFields {
     cookieAzam = list[13];
     cookieFalcon = list[14];
     updateSecond = list[15];
-    lastUpdateTime = list[16];
   }
 }
 
@@ -98,7 +95,6 @@ class MyPrefs {
     MyPrefsFields.cookieFalcon = instance.getString("cookie_falcon") ?? "";
 
     MyPrefsFields.updateSecond = instance.getInt("update_second") ?? 4;
-    MyPrefsFields.lastUpdateTime = instance.getInt("last_update_time") ?? 0;
   }
 
   //=========================================================================
@@ -163,13 +159,6 @@ class MyPrefs {
     final instance = await SharedPreferences.getInstance();
     final result = await instance.setInt("update_second", value);
     MyPrefsFields.updateSecond = value;
-    return result;
-  }
-
-  Future<bool> setLastUpdateTime(int value) async {
-    final instance = await SharedPreferences.getInstance();
-    final result = await instance.setInt("last_update_time", value);
-    MyPrefsFields.lastUpdateTime = value;
     return result;
   }
 

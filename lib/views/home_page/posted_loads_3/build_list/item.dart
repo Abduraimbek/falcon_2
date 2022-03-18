@@ -1,7 +1,3 @@
-///
-/// Created by Abduraimbek Yarkinov at 17:55 on 18.11.2021.
-///
-
 import 'package:flutter/material.dart';
 import 'package:falcon_2/singletons/singletons.dart';
 import 'package:falcon_2/utils/utils.dart';
@@ -11,19 +7,20 @@ class Item extends StatelessWidget {
   const Item({
     Key? key,
     required this.orderModel,
+    required this.blackSimpleStyle,
+    required this.timeStyle,
+    required this.isViewing,
   }) : super(key: key);
 
   final OrderModel4 orderModel;
+  final TextStyle blackSimpleStyle;
+  final TextStyle timeStyle;
+  final bool isViewing;
 
   @override
   Widget build(BuildContext context) {
     final blackStyle = MyTextStyles.interMediumFirst(
       isBold: orderModel.seen == false,
-    );
-    final blackSimpleStyle = MyTextStyles.interMediumFirst();
-    final timeStyle = MyTextStyles.interMediumFirst(
-      fontSize: 3,
-      isBold: true,
     );
 
     return Column(
@@ -32,9 +29,11 @@ class Item extends StatelessWidget {
         Container(
           width: double.infinity,
           padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-          color: orderModel.seen == false
-              ? MyColors.backgroundColor.withOpacity(.3)
-              : Colors.transparent,
+          color: isViewing
+              ? Colors.red.withOpacity(.4)
+              : orderModel.seen == false
+                  ? MyColors.backgroundColor.withOpacity(.3)
+                  : Colors.transparent,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [

@@ -2,14 +2,12 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:falcon_2/singletons/singletons.dart';
-import 'package:falcon_2/utils/utils.dart';
 import 'package:http/http.dart' as http;
 
 class OrderApi4 {
   Future<List<OrderModel4>?> getOrders() async {
     try {
-      final uri = Uri.parse(
-          "http://188.225.78.146:3000/latest?from=${MyPrefsFields.lastUpdateTime}&limit=100");
+      final uri = Uri.parse("http://188.225.78.146:3000/new-items");
       final response = await http.get(uri);
       final parsed = await jsonDecode(utf8.decode(response.bodyBytes));
       final List list = parsed["items"];

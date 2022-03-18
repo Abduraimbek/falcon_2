@@ -2,35 +2,34 @@ import 'dart:async';
 
 import 'package:falcon_2/providers/providers.dart';
 import 'package:falcon_2/singletons/singletons.dart';
-import 'package:falcon_2/utils/utils.dart';
+
+final viewingOrderIdProvider = StateProvider<String?>((ref) => null);
+
+final listCountProvider =
+    StateProvider<int>((ref) => ref.watch(orderListProvider4).length);
 
 final orderListProvider4 =
     StateNotifierProvider<OrderListNotifier4, List<OrderModel4>>((ref) {
   return OrderListNotifier4(
-      MyObjectbox.store.box<OrderModel4>().getAll().reversed.toList());
-});
-
-final listCountProvider = StateProvider<int>((ref) {
-  int count = ref.watch(orderListProvider4).length;
-  return count;
+    MyObjectbox.store.box<OrderModel4>().getAll().reversed.toList(),
+    ref,
+  );
 });
 
 class OrderListNotifier4 extends StateNotifier<List<OrderModel4>> {
-  OrderListNotifier4(this.list) : super(list) {
+  OrderListNotifier4(this.list, this.ref) : super(list) {
     final stream = MyObjectbox.store.box<OrderModel4>().query().watch();
     _streamSubscription = stream.listen((event) {
-      list = event.find().reversed.toList();
-
-      // list = event.find()
-      //   ..sort((a, b) => (b.postDate ?? "").compareTo(a.postDate ?? ""));
-
-      MyPrefs().setLastUpdateTime(DateTime.now().millisecondsSinceEpoch);
-      _setState();
+      if (ref.read(viewingOrderIdProvider) == null) {
+        list = event.find();
+        _setState();
+      }
     });
   }
 
   late StreamSubscription _streamSubscription;
   List<OrderModel4> list;
+  Ref ref;
 
   @override
   void dispose() {
