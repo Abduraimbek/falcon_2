@@ -17,6 +17,9 @@ class UpdateOrders4 {
     _timer = Timer.periodic(
       Duration(seconds: MyPrefsFields.updateSecond),
       (timer) {
+        print(MyPrefsFields.lastUpdateTime);
+        print(
+            DateTime.fromMillisecondsSinceEpoch(MyPrefsFields.lastUpdateTime));
         OrderRepository4.getOrders();
       },
     );

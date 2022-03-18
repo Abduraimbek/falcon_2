@@ -144,16 +144,19 @@ class _CookieChangeDialogState extends State<_CookieChangeDialog> {
   }
 
   Future<void> _method(BuildContext context) async {
+    final falconText = controllerFalcon.text;
+    final azamText = controllerAzam.text;
+
     if (MyPrefsFields.isRoot) {
       showWaitingDialog(context);
 
       final resultFalcon = await _setCookieApi(
         "falcon",
-        controllerFalcon.text,
+        falconText,
       );
       final resultAzam = await _setCookieApi(
         "azam",
-        controllerAzam.text,
+        azamText,
       );
 
       Navigator.pop(context);
@@ -167,6 +170,7 @@ class _CookieChangeDialogState extends State<_CookieChangeDialog> {
       final body = {"to": to, "cookie": cookie};
       final response = await post(uri, body: jsonEncode(body));
       final parsed = await jsonDecode(utf8.decode(response.bodyBytes));
+
       print(body);
       print(response.body);
       return parsed["ok"];

@@ -302,7 +302,7 @@
     },
     {
       "id": "6:1522456334922119248",
-      "lastPropertyId": "19:5562224167090216148",
+      "lastPropertyId": "20:5798124006255985121",
       "name": "OrderModel4",
       "properties": [
         {
@@ -390,13 +390,20 @@
           "id": "19:5562224167090216148",
           "name": "host",
           "type": 9
+        },
+        {
+          "id": "20:5798124006255985121",
+          "name": "mongoId",
+          "type": 9,
+          "flags": 34848,
+          "indexId": "2:15119363265977610"
         }
       ],
       "relations": []
     }
   ],
   "lastEntityId": "6:1522456334922119248",
-  "lastIndexId": "0:0",
+  "lastIndexId": "2:15119363265977610",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
   "modelVersion": 5,
@@ -405,7 +412,9 @@
     6370935516019419664,
     4282642146361892702
   ],
-  "retiredIndexUids": [],
+  "retiredIndexUids": [
+    6894209797916850187
+  ],
   "retiredPropertyUids": [
     664751760077526124,
     3327925752294373023,

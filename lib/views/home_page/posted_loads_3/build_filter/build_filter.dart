@@ -38,8 +38,18 @@ class BuildFilter extends ConsumerWidget {
           const DestinationFilter(),
           const SizedBox(width: 50),
           buildAllSeen(),
+          const SizedBox(width: 50),
+          buildListCount(),
         ],
       ),
+    );
+  }
+
+  Widget buildListCount() {
+    return Consumer(
+      builder: (context, ref, _) {
+        return Text("${ref.watch(listCountProvider)}");
+      },
     );
   }
 
