@@ -55,6 +55,7 @@ class _BuildListState extends ConsumerState<BuildList> {
           onTap: () {
             if (viewingOrderId == null) {
               ref.read(viewingOrderIdProvider.notifier).state = item.orderId;
+              OrderRepository4.seen(item);
             } else {
               ref.read(viewingOrderIdProvider.notifier).state = null;
             }
