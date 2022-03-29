@@ -18,6 +18,10 @@ class BuildMapWebview extends ConsumerWidget {
     String to = toTo;
     String stop = ref.watch(fromToStopProvider).stop;
 
+    print(from);
+    print(to);
+    print(stop);
+
     return SizedBox(
       height: 30.vertical,
       width: double.infinity,

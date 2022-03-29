@@ -1,7 +1,3 @@
-///
-/// Created by Abduraimbek Yarkinov at 10:29 on 22.11.2021.
-///
-
 import 'package:falcon_2/singletons/singletons.dart';
 import 'package:flutter/material.dart';
 import 'package:falcon_2/utils/utils.dart';
@@ -17,6 +13,10 @@ Future<void> showBidDialog3({
 }) async {
   OrderRepository4.seen(orderModel);
   orderModel4OrderModel4 = orderModel;
+
+  fromFrom = orderModel.pickUpAt ?? "";
+  toTo = orderModel.deliverTo ?? "";
+  orderIdOrderId = int.tryParse(orderModel.orderId ?? "") ?? 0;
 
   await showDialog(
     context: context,
@@ -64,10 +64,6 @@ class _BidDialog extends ConsumerWidget {
                   } else {
                     final model = snapshot.data!;
                     orderByLinkModel3OrderByLinkModel3 = model;
-                    fromFrom = orderModel.pickUpAt ?? "";
-                    toTo = orderModel.deliverTo ?? "";
-                    orderIdOrderId =
-                        int.tryParse(orderModel.orderId ?? "") ?? 0;
 
                     return buildColumn(model);
                   }
