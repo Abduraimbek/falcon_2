@@ -41,6 +41,8 @@ class _CookieChangeDialog extends StatefulWidget {
 class _CookieChangeDialogState extends State<_CookieChangeDialog> {
   late TextEditingController controllerFalcon;
   late TextEditingController controllerAzam;
+  String falconCookie = "";
+  String azamCookie = "";
 
   @override
   void initState() {
@@ -85,6 +87,9 @@ class _CookieChangeDialogState extends State<_CookieChangeDialog> {
                   ),
                 ),
                 child: TextField(
+                  onChanged: (value) {
+                    falconCookie = value;
+                  },
                   autofocus: true,
                   controller: controllerFalcon,
                   style: MyTextStyles.interMediumFirst(),
@@ -114,6 +119,9 @@ class _CookieChangeDialogState extends State<_CookieChangeDialog> {
                   ),
                 ),
                 child: TextField(
+                  onChanged: (value) {
+                    azamCookie = value;
+                  },
                   autofocus: false,
                   controller: controllerAzam,
                   style: MyTextStyles.interMediumFirst(),
@@ -144,19 +152,16 @@ class _CookieChangeDialogState extends State<_CookieChangeDialog> {
   }
 
   Future<void> _method(BuildContext context) async {
-    final falconText = controllerFalcon.text;
-    final azamText = controllerAzam.text;
-
     if (MyPrefsFields.isRoot) {
       showWaitingDialog(context);
 
       final resultFalcon = await _setCookieApi(
         "falcon",
-        falconText,
+        falconCookie,
       );
       final resultAzam = await _setCookieApi(
         "azam",
-        azamText,
+        azamCookie,
       );
 
       Navigator.pop(context);
@@ -167,12 +172,16 @@ class _CookieChangeDialogState extends State<_CookieChangeDialog> {
   Future<bool> _setCookieApi(String to, String cookie) async {
     try {
       final uri = Uri.parse("http://188.225.78.146:3000/set-cookie");
-      final body = {"to": to, "cookie": cookie};
-      final response = await post(uri, body: jsonEncode(body));
-      final parsed = await jsonDecode(utf8.decode(response.bodyBytes));
+      final body = jsonEncode({"to": to, "cookie": cookie});
+      final response = await post(
+        uri,
+        body: body,
+        headers: {"Content-Type": "application/json"},
+      );
+      final parsed = await jsonDecode(
+        utf8.decode(response.bodyBytes),
+      );
 
-      print(body);
-      print(response.body);
       return parsed["ok"];
     } catch (e) {
       log("cookie_change_dialog.dart --> _setCookieApi --> error --> $e");

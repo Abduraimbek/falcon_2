@@ -1,7 +1,3 @@
-///
-/// Created by Abduraimbek Yarkinov at 11:07 on 16.11.2021.
-///
-
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'app.dart';
