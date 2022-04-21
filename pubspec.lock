@@ -112,7 +112,7 @@ packages:
       name: build_daemon
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.1"
+    version: "3.1.0"
   build_resolvers:
     dependency: transitive
     description:
@@ -126,7 +126,7 @@ packages:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.7"
+    version: "2.1.10"
   build_runner_core:
     dependency: transitive
     description:
@@ -478,6 +478,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.2"
+  get_it:
+    dependency: transitive
+    description:
+      name: get_it
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "7.2.0"
   glob:
     dependency: transitive
     description:
@@ -624,7 +631,7 @@ packages:
       name: msix
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.4.0"
+    version: "3.5.1"
   nm:
     dependency: transitive
     description:

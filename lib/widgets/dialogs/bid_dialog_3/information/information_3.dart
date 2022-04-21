@@ -152,7 +152,8 @@ class Information3 extends StatelessWidget {
         copy += "Delivery date (EST): ${orderModel.deliverDate}\n\n";
         copy += "Miles: ${orderModel.miles}\n";
         copy += "Pieces: ${orderModel.pieces}\n";
-        copy += "Weight: ${orderModel.weight}\n\n";
+        copy += "Weight: ${orderModel.weight}\n";
+        copy += "Dims: ${orderByLinkModel3.dims}\n\n";
         copy += "Notes: ${orderByLinkModel3.notes}";
         Clipboard.setData(ClipboardData(text: copy));
       },
