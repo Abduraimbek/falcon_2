@@ -11,7 +11,8 @@ final listCountProvider =
 final orderListProvider4 =
     StateNotifierProvider<OrderListNotifier4, List<OrderModel4>>((ref) {
   return OrderListNotifier4(
-    MyObjectbox.store.box<OrderModel4>().getAll().reversed.toList(),
+    MyObjectbox.store.box<OrderModel4>().getAll()
+      ..sort((a, b) => (b.postDate ?? "").compareTo(a.postDate ?? "")),
     ref,
   );
 });
@@ -21,7 +22,8 @@ class OrderListNotifier4 extends StateNotifier<List<OrderModel4>> {
     final stream = MyObjectbox.store.box<OrderModel4>().query().watch();
     _streamSubscription = stream.listen((event) {
       if (ref.read(viewingOrderIdProvider) == null) {
-        list = event.find();
+        list = event.find()
+          ..sort((a, b) => (b.postDate ?? "").compareTo(a.postDate ?? ""));
         _setState();
       }
     });

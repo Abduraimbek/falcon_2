@@ -135,7 +135,7 @@ class _QuoteDetails extends ChangeNotifier {
       vehicleType: orderModel4OrderModel4!.vehicle ?? "",
       createdDate: 32423324,
       //orderModel4OrderModel4!.writeTime,
-      totalMiles: "total miles",
+      totalMiles: "$milesOut miles",
       //orderModel4OrderModel4!.miles ?? "",
       requestRef: orderModel4OrderModel4!.orderId ?? "",
       createdDateStr: orderModel4OrderModel4!.postDate ?? "",
