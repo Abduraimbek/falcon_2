@@ -408,13 +408,7 @@ final _entities = <ModelEntity>[
             id: const IdUid(19, 5562224167090216148),
             name: 'host',
             type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(20, 5798124006255985121),
-            name: 'mongoId',
-            type: 9,
-            flags: 34848,
-            indexId: const IdUid(2, 15119363265977610))
+            flags: 0)
       ],
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[])
@@ -445,7 +439,7 @@ ModelDefinition getObjectBoxModel() {
       lastRelationId: const IdUid(0, 0),
       lastSequenceId: const IdUid(0, 0),
       retiredEntityUids: const [6370935516019419664, 4282642146361892702],
-      retiredIndexUids: const [6894209797916850187],
+      retiredIndexUids: const [6894209797916850187, 15119363265977610],
       retiredPropertyUids: const [
         664751760077526124,
         3327925752294373023,
@@ -482,7 +476,8 @@ ModelDefinition getObjectBoxModel() {
         641312573716763147,
         551977969975243032,
         3303296316263924307,
-        7719998074281519140
+        7719998074281519140,
+        5798124006255985121
       ],
       retiredRelationUids: const [],
       modelVersion: 5,
@@ -802,7 +797,6 @@ ModelDefinition getObjectBoxModel() {
           final milesOffset =
               object.miles == null ? null : fbb.writeString(object.miles!);
           final hostOffset = fbb.writeString(object.host);
-          final mongoIdOffset = fbb.writeString(object.mongoId);
           fbb.startTable(21);
           fbb.addInt64(0, object.id);
           fbb.addBool(1, object.seen);
@@ -821,7 +815,6 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(14, piecesOffset);
           fbb.addOffset(17, milesOffset);
           fbb.addOffset(18, hostOffset);
-          fbb.addOffset(19, mongoIdOffset);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -830,8 +823,6 @@ ModelDefinition getObjectBoxModel() {
           final rootOffset = buffer.derefObject(0);
 
           final object = OrderModel4(
-              mongoId: const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 42, ''),
               link: const fb.StringReader(asciiOptimization: true)
                   .vTableGetNullable(buffer, rootOffset, 8),
               postedBy: const fb.StringReader(asciiOptimization: true)
@@ -844,7 +835,8 @@ ModelDefinition getObjectBoxModel() {
                   .vTableGetNullable(buffer, rootOffset, 16),
               pickUpDate: const fb.StringReader(asciiOptimization: true)
                   .vTableGetNullable(buffer, rootOffset, 18),
-              deliverTo: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 20),
+              deliverTo: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 20),
               deliverDate: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 22),
               postDate: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 24),
               expiresDate: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 26),
@@ -1157,8 +1149,4 @@ class OrderModel4_ {
   /// see [OrderModel4.host]
   static final host =
       QueryStringProperty<OrderModel4>(_entities[3].properties[16]);
-
-  /// see [OrderModel4.mongoId]
-  static final mongoId =
-      QueryStringProperty<OrderModel4>(_entities[3].properties[17]);
 }

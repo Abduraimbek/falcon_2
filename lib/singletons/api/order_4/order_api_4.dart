@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 class OrderApi4 {
   Future<List<OrderModel4>?> getOrders() async {
     try {
-      final uri = Uri.parse("http://188.225.78.146:3000/new-items");
+      final uri = Uri.parse("http://188.225.78.146:3000/latest?from=0");
       final response = await http.get(uri);
       final parsed = await jsonDecode(utf8.decode(response.bodyBytes));
       final List list = parsed["items"];

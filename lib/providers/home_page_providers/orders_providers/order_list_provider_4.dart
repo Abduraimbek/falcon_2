@@ -10,21 +10,21 @@ final listCountProvider =
 
 final orderListProvider4 =
     StateNotifierProvider<OrderListNotifier4, List<OrderModel4>>((ref) {
-  return OrderListNotifier4(
-    MyObjectbox.store.box<OrderModel4>().getAll()
-      ..sort((a, b) => (b.postDate ?? "").compareTo(a.postDate ?? "")),
-    ref,
-  );
+  var list = MyObjectbox.store.box<OrderModel4>().getAll();
+  list = list.reversed.toList();
+
+  return OrderListNotifier4(list, ref);
 });
 
 class OrderListNotifier4 extends StateNotifier<List<OrderModel4>> {
   OrderListNotifier4(this.list, this.ref) : super(list) {
     final stream = MyObjectbox.store.box<OrderModel4>().query().watch();
     _streamSubscription = stream.listen((event) {
+      var lll = event.find();
+      lll = lll.reversed.toList();
+      list = lll;
       if (ref.read(viewingOrderIdProvider) == null) {
-        list = event.find()
-          ..sort((a, b) => (b.postDate ?? "").compareTo(a.postDate ?? ""));
-        _setState();
+        setState();
       }
     });
   }
@@ -39,7 +39,7 @@ class OrderListNotifier4 extends StateNotifier<List<OrderModel4>> {
     super.dispose();
   }
 
-  void _setState() {
+  void setState() {
     orderId = orderId.toLowerCase();
     origin = origin.toLowerCase();
     destination = destination.toLowerCase();
@@ -76,21 +76,21 @@ class OrderListNotifier4 extends StateNotifier<List<OrderModel4>> {
 
   void typeOrderId(String value) {
     orderId = value;
-    _setState();
+    setState();
   }
 
   void selectVehicle(String value) {
     vehicle = value;
-    _setState();
+    setState();
   }
 
   void typeOrigin(String value) {
     origin = value;
-    _setState();
+    setState();
   }
 
   void typeDestination(String value) {
     destination = value;
-    _setState();
+    setState();
   }
 }

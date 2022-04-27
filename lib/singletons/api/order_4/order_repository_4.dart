@@ -38,81 +38,31 @@ class OrderRepository4 {
   }
 
   static Future<void> _newItems(Store store, String str) async {
-    final orders = await OrderApi4().getOrders();
+    final newOrders = await OrderApi4().getOrders();
 
-    if (orders != null && orders.isNotEmpty) {
+    if (newOrders != null && newOrders.isNotEmpty) {
       final box = store.box<OrderModel4>();
       List<OrderModel4> currentOrders = box.getAll();
 
-      List<OrderModel4> listForPutStore = [];
+      List<OrderModel4> list = [...currentOrders];
 
-      for (int i = 0; i < orders.length; i++) {
-        if (currentOrders
-            .any((e) => e.orderId == orders[i].orderId && e.seen)) {
-          orders[i].seen = true;
-
-          listForPutStore.add(orders[i]);
-        } else {
-          listForPutStore.insert(0, orders[i]);
+      for (int i = 0; i < newOrders.length; i++) {
+        if (newOrders[i].orderId != null) {
+          if (currentOrders.any((e) => e.orderId == newOrders[i].orderId)) {
+          } else {
+            list.add(newOrders[i]);
+          }
         }
       }
 
-      box
-        ..removeAll()
-        ..putMany(listForPutStore);
+      if (list.isNotEmpty) {
+        list = list.reversed.toList();
+        box.putMany(list);
+      }
     }
 
     store.close();
   }
-
-  // static Future getOrders() async {
-  //   final internet = await InternetConnectionChecker().hasConnection;
-  //   if (!internet) return;
-  //
-  //   ReceivePort receivePort = ReceivePort();
-  //   final i = await Isolate.spawn(_getOrdersIsolate, receivePort.sendPort);
-  //
-  //   SendPort childSendPort = await receivePort.first;
-  //
-  //   ReceivePort responsePort = ReceivePort();
-  //   ByteData store = MyObjectbox.store.reference;
-  //   childSendPort.send([
-  //     store,
-  //     receivePort.sendPort,
-  //     MyPrefsFields.getList(),
-  //   ]);
-  //
-  //   await responsePort.first;
-  //   responsePort.close();
-  //   receivePort.close();
-  //   i.kill();
-  // }
-  //
-  // static Future _getOrdersIsolate(SendPort mainSendPort) async {
-  //   ReceivePort childReceivePort = ReceivePort();
-  //   mainSendPort.send(childReceivePort.sendPort);
-  //
-  //   await for (var message in childReceivePort) {
-  //     ByteData byteData = message[0];
-  //     SendPort replyPort = message[1];
-  //     MyPrefsFields.setList(message[2]);
-  //
-  //     final store = Store.fromReference(getObjectBoxModel(), byteData);
-  //
-  //     await _getOrdersBackgroundMethod(store);
-  //
-  //     store.close();
-  //     replyPort.send("");
-  //     childReceivePort.close();
-  //   }
-  // }
-  //
-  // static Future _getOrdersBackgroundMethod(Store store) async {
-  //   final list = await OrderApi4().getOrders();
-  //   if (list != null && list.isNotEmpty) {
-  //     store.box<OrderModel4>().putMany(list);
-  //   }
-  // }
 
   static Future<bool> _hasConnection() async {
     final result = await Connectivity().checkConnectivity();

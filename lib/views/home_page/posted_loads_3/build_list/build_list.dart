@@ -58,6 +58,7 @@ class _BuildListState extends ConsumerState<BuildList> {
               OrderRepository4.seen(item);
             } else {
               ref.read(viewingOrderIdProvider.notifier).state = null;
+              ref.read(orderListProvider4.notifier).setState();
             }
           },
           onDoubleTap: () {

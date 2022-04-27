@@ -94,7 +94,7 @@ class MyPrefs {
     MyPrefsFields.cookieAzam = instance.getString("cookie_azam") ?? "";
     MyPrefsFields.cookieFalcon = instance.getString("cookie_falcon") ?? "";
 
-    MyPrefsFields.updateSecond = instance.getInt("update_second") ?? 4;
+    MyPrefsFields.updateSecond = instance.getInt("update_second") ?? 7;
   }
 
   //=========================================================================

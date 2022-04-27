@@ -3,8 +3,9 @@ import 'package:objectbox/objectbox.dart';
 @Entity()
 class OrderModel4 {
   int id = 0;
-  @Unique(onConflict: ConflictStrategy.replace)
-  final String mongoId;
+
+  // @Unique(onConflict: ConflictStrategy.replace)
+  // final String mongoId;
   final String? link;
   final String? postedBy;
   final String? refNo;
@@ -23,7 +24,7 @@ class OrderModel4 {
   bool seen;
 
   OrderModel4({
-    required this.mongoId,
+    // required this.mongoId,
     required this.link,
     required this.postedBy,
     required this.refNo,
@@ -44,7 +45,7 @@ class OrderModel4 {
 
   factory OrderModel4.fromJson(json) {
     final model = OrderModel4(
-      mongoId: json["_id"] ?? "",
+      // mongoId: json["_id"] ?? "",
       link: json["link"],
       postedBy: json["postedBy"],
       refNo: json["refNo"],
