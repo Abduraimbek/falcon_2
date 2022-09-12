@@ -6,9 +6,7 @@ import 'package:falcon_2/providers/providers.dart';
 import 'package:falcon_2/singletons/singletons.dart';
 
 class Wrapper extends ConsumerStatefulWidget {
-  const Wrapper({
-    Key? key,
-  }) : super(key: key);
+  const Wrapper({Key? key}) : super(key: key);
 
   @override
   ConsumerState createState() => _WrapperState();

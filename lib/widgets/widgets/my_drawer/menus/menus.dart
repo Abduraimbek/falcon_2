@@ -1,11 +1,7 @@
-///
-/// Created by Abduraimbek Yarkinov at 13:22 on 18.11.2021.
-///
-
 import 'package:flutter/material.dart';
 import 'package:falcon_2/utils/utils.dart';
 import 'components/logo.dart';
-import 'components/menu_item.dart';
+import 'components/menu_item.dart' as menu;
 import 'components/header_item.dart';
 import 'package:falcon_2/providers/providers.dart';
 
@@ -27,7 +23,7 @@ class Menus extends ConsumerWidget {
           const SizedBox(height: 30),
           const Logo(),
           const SizedBox(height: 50),
-          MenuItem(
+          menu.MenuItem(
             isSelected: drawer == DrawerEnum.dashboard,
             svgPath: "assets/svg_drawer/drawer_overview.svg",
             label: "Dashboard",
@@ -38,7 +34,7 @@ class Menus extends ConsumerWidget {
             },
           ),
           const HeaderItem(header: "LOADBOARD"),
-          MenuItem(
+          menu.MenuItem(
             isSelected: drawer == DrawerEnum.postedLoads,
             svgPath: "assets/svg_drawer/drawer_posted_loads.svg",
             label: "Posted Loads",
@@ -48,7 +44,7 @@ class Menus extends ConsumerWidget {
                   .pressDrawerItem(DrawerEnum.postedLoads);
             },
           ),
-          MenuItem(
+          menu.MenuItem(
             isSelected: drawer == DrawerEnum.quotedLoads,
             svgPath: "assets/svg_drawer/drawer_quoted_loads.svg",
             label: "Quoted Loads",
@@ -59,7 +55,7 @@ class Menus extends ConsumerWidget {
             },
           ),
           const HeaderItem(header: "SHIPMENT"),
-          MenuItem(
+          menu.MenuItem(
             isSelected: drawer == DrawerEnum.activeShipments,
             svgPath: "assets/svg_drawer/drawer_active_shipment.svg",
             label: "Active Shipments",
@@ -69,7 +65,7 @@ class Menus extends ConsumerWidget {
                   .pressDrawerItem(DrawerEnum.activeShipments);
             },
           ),
-          MenuItem(
+          menu.MenuItem(
             isSelected: drawer == DrawerEnum.createLoad,
             svgPath: "assets/svg_drawer/drawer_create_load.svg",
             label: "Create Load",
@@ -79,7 +75,7 @@ class Menus extends ConsumerWidget {
                   .pressDrawerItem(DrawerEnum.createLoad);
             },
           ),
-          MenuItem(
+          menu.MenuItem(
             isSelected: false,
             svgPath: "assets/svg_drawer/drawer_archive_shipment.svg",
             label: "Archive Shipments",
@@ -88,13 +84,13 @@ class Menus extends ConsumerWidget {
             },
           ),
           const HeaderItem(header: "MANAGE FLEET"),
-          MenuItem(
+          menu.MenuItem(
             isSelected: false,
             svgPath: "assets/svg_drawer/drawer_units.svg",
             label: "Units",
             onTap: () {},
           ),
-          MenuItem(
+          menu.MenuItem(
             isSelected: drawer == DrawerEnum.fleetView,
             svgPath: "assets/svg_drawer/drawer_fleet_view.svg",
             label: "Fleet view",
@@ -114,7 +110,7 @@ class Menus extends ConsumerWidget {
 
   Widget buildItemEmployee(DrawerEnum drawer, WidgetRef ref) {
     if (MyPrefsFields.isRoot) {
-      return MenuItem(
+      return menu.MenuItem(
         isSelected: drawer == DrawerEnum.employees,
         svgPath: "assets/svg3/create_employee.svg",
         label: "Employees",
@@ -126,7 +122,7 @@ class Menus extends ConsumerWidget {
       );
     } else {
       if (MyPrefsFields.isAccessEmployee) {
-        return MenuItem(
+        return menu.MenuItem(
           isSelected: drawer == DrawerEnum.employees,
           svgPath: "assets/svg3/create_employee.svg",
           label: "Employees",

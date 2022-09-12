@@ -89,11 +89,11 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "anor.group.falcon" "\0"
+            VALUE "CompanyName", "com.example" "\0"
             VALUE "FileDescription", "falcon_2" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "falcon_2" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2022 anor.group.falcon. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
             VALUE "OriginalFilename", "falcon_2.exe" "\0"
             VALUE "ProductName", "falcon_2" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"

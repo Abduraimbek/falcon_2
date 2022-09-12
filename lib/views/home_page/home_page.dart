@@ -1,7 +1,3 @@
-///
-/// Created by Abduraimbek Yarkinov at 13:13 on 18.11.2021.
-///
-
 import 'package:flutter/material.dart';
 import 'package:falcon_2/widgets/widgets.dart';
 import 'package:falcon_2/utils/utils.dart';
@@ -26,38 +22,36 @@ class HomePage extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: MyColors.backgroundColor,
-      body: MyBitsDojoWindow(
-        child: MyDrawer(
-          label: label,
-          child: Material(
-            color: Colors.white,
-            child: SizedBox(
-              width: double.infinity,
-              height: double.infinity,
-              child: Builder(
-                builder: (_) {
-                  switch (drawer) {
-                    case DrawerEnum.dashboard:
-                      return const Dashboard();
-                    case DrawerEnum.postedLoads:
-                      return const PostedLoads3();
-                    case DrawerEnum.quotedLoads:
-                      return const QuotedLoads();
-                    case DrawerEnum.activeShipments:
-                      return const ActiveShipments();
-                    case DrawerEnum.createLoad:
-                      return const CreateLoad();
-                    case DrawerEnum.archiveShipments:
-                      return Container();
-                    case DrawerEnum.units:
-                      return Container();
-                    case DrawerEnum.fleetView:
-                      return const FleetView();
-                    case DrawerEnum.employees:
-                      return const Employee();
-                  }
-                },
-              ),
+      body: MyDrawer(
+        label: label,
+        child: Material(
+          color: Colors.white,
+          child: SizedBox(
+            width: double.infinity,
+            height: double.infinity,
+            child: Builder(
+              builder: (_) {
+                switch (drawer) {
+                  case DrawerEnum.dashboard:
+                    return const Dashboard();
+                  case DrawerEnum.postedLoads:
+                    return const PostedLoads3();
+                  case DrawerEnum.quotedLoads:
+                    return const QuotedLoads();
+                  case DrawerEnum.activeShipments:
+                    return const ActiveShipments();
+                  case DrawerEnum.createLoad:
+                    return const CreateLoad();
+                  case DrawerEnum.archiveShipments:
+                    return Container();
+                  case DrawerEnum.units:
+                    return Container();
+                  case DrawerEnum.fleetView:
+                    return const FleetView();
+                  case DrawerEnum.employees:
+                    return const Employee();
+                }
+              },
             ),
           ),
         ),
