@@ -5,6 +5,7 @@
 // See also https://docs.objectbox.io/getting-started#generate-objectbox-code
 
 // ignore_for_file: camel_case_types
+// coverage:ignore-file
 
 import 'dart:typed_data';
 
@@ -328,7 +329,7 @@ final _entities = <ModelEntity>[
             id: const IdUid(1, 9055226559769402861),
             name: 'id',
             type: 6,
-            flags: 1),
+            flags: 129),
         ModelProperty(
             id: const IdUid(2, 4602468141666780004),
             name: 'seen',
@@ -823,6 +824,7 @@ ModelDefinition getObjectBoxModel() {
           final rootOffset = buffer.derefObject(0);
 
           final object = OrderModel4(
+              id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0),
               link: const fb.StringReader(asciiOptimization: true)
                   .vTableGetNullable(buffer, rootOffset, 8),
               postedBy: const fb.StringReader(asciiOptimization: true)
@@ -845,8 +847,7 @@ ModelDefinition getObjectBoxModel() {
               pieces: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 32),
               miles: const fb.StringReader(asciiOptimization: true).vTableGetNullable(buffer, rootOffset, 38),
               host: const fb.StringReader(asciiOptimization: true).vTableGet(buffer, rootOffset, 40, ''),
-              seen: const fb.BoolReader().vTableGet(buffer, rootOffset, 6, false))
-            ..id = const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+              seen: const fb.BoolReader().vTableGet(buffer, rootOffset, 6, false));
 
           return object;
         })
